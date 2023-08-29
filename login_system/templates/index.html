@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Authentication</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+        <style>
+        body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: url('https://images.unsplash.com/photo-1516131206008-dd041a9764fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80') no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+          .wrapper{
+                position: relative;
+                width: 400px;
+                height: 324px;
+                border: 2px solid rgba(255, 255, 255, .5);
+                border-radius: 20px;
+                backdrop-filter: blur(20px);
+                box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+          }
+
+          .wrapper .form-box{
+                width: 100%;
+                padding: 40px;
+          }
+
+          .form-box h2{
+                font-size: 2em;
+                color: #162938;
+                text-align: center;
+          }
+            .text-box{
+                float: left;
+                width: 100%;
+                text-align: center;
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+          }
+
+.button{
+padding: 5px 34px;
+    border-radius: 8px;
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+  line-height: 1.25;
+  background: #162938;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  letter-spacing: .08em;
+
+  position: relative;
+  transition: background-color .6s ease;
+  overflow: hidden;
+}
+            &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    top: var(--mouse-y);
+    left: var(--mouse-x);
+    transform-style: flat;
+    transform: translate3d(-50%,-50%,0);
+    background: rgba(white,.1);
+    border-radius: 100%;
+    transition: width .3s ease, height;
+            }
+a:link, a:visited{
+color: white;
+padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+}
+            .alert {
+            position: fixed;
+            top: 30px;
+            left: 405px;
+            width: 34%;
+            text-align: center;
+            padding: 5px 34px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+            line-height: 1.25;
+            background: #162938;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            letter-spacing: .08em;
+          }
+
+        </style>
+
+    </head>
+
+    <body>
+
+       {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message:</strong> {{ message }}
+        </div>
+
+        {% endfor %}
+
+        <div class="wrapper">
+
+            <div class="form-box login">
+                <h2>Welcome to Authentication System</h2>
+
+                {% if user.is_authenticated %}
+                <h3>Hello {{ fname }}</h3>
+                <h4>You're successfully logged in.</h4>
+
+                <button class="button" type="submit"> <a href="/signout">SignOut</a> </button>
+                 </div>
+        {% else %}
+                <div class="text-box">
+                <button class="button" type="submit"><a href="/signup">SignUp</a> </button>
+                <button class="button" type="submit"><a href="/signin">SignIn</a> </button>
+                </div>
+
+        {% endif %}
+
+                </form>
+
+
+        </div>
+
+    <script src="" async defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+  </body>
+</html>
+
+</html>
